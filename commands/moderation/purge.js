@@ -9,6 +9,15 @@ module.exports = {
         aliases: ["clear"]
     },
     run: async (bot, message, args) => {
+         let perembed = new RichEmbed()
+        .setTitle("Lucifer Bot")
+        .setDescription(`You do not have access to \`purge\`, ${message.author}.`)
+        .setColor(0xe20000)
+        .setFooter(message.id)
+        .setTimestamp();
+        
+        if(!message.member.hasPermissions(["MANAGE_MESSAGES"])) return message.channel.send(perembed)
+        
         let amountembed = new RichEmbed()
         .setTitle("Lucifer Bot")
         .setDescription(`Please provide a valid amount of messages, ${message.author}.`)
@@ -29,15 +38,6 @@ module.exports = {
         .setColor(0xe20000)
         .setFooter(message.id)
         .setTimestamp();
-        
-        let perembed = new RichEmbed()
-        .setTitle("Lucifer Bot")
-        .setDescription(`You do not have access to \`purge\`, ${message.author}.`)
-        .setColor(0xe20000)
-        .setFooter(message.id)
-        .setTimestamp();
-        
-        if(message.author.hasPermissions("MANAGE_MESSAGES")) return message.channel.send(perembed)
         
         if (isNaN(args[0])) return message.channel.send(amountembed)
         if(args[0] > 100) return message.channel.send(hundredembed)
