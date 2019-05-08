@@ -44,5 +44,6 @@ module.exports = {
 
         message.channel.bulkDelete(args[0])
         .then(message.channel.send(successembed))
+        .catch( error => message.channel.send(`[E] ${error.message}`))
     }
 }
