@@ -25,7 +25,7 @@ module.exports = {
 
         let timeembed = new RichEmbed()
         .setTitle("Lucifer Bot")
-        .setDescription(`Please provide a time to mute the user, ${message.author}.`)
+        .setDescription(`Please provide a valid time to mute the user, ${message.author}.`)
         .setColor(0xe20000)
         .setFooter(message.id)
         .setTimestamp();
