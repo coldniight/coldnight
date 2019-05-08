@@ -47,6 +47,7 @@ module.exports = {
 
         let time = args[1];
         if(!time) return message.channel.send(timeembed)
+        if(isNaN(time)) return message.channel.send(timeembed)
 
         let reason = args.slice(2).join(" ");
         if(!reason) reason = "No reason given"
