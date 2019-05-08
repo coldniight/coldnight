@@ -37,10 +37,10 @@ module.exports = {
         .setFooter(message.id)
         .setTimestamp();
         
+        if(!message.author.hasPermissions("MANAGE_MESSAGES")) return message.channel.send(permembed)
+        
         if (isNaN(args[0])) return message.channel.send(amountembed)
         if(args[0] > 100) return message.channel.send(hundredembed)
-        
-        if(!message.author.hasPermissions("MANAGE_MESSAGES")) return message.channel.send(permembed)
 
         message.channel.bulkDelete(args[0])
         .then(message.channel.send(successembed))
