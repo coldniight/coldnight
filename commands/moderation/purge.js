@@ -37,7 +37,7 @@ module.exports = {
         .setFooter(message.id)
         .setTimestamp();
         
-        if(!message.author.hasPermissions("MANAGE_MESSAGES")) return message.channel.send(permembed)
+        f(message.author.hasPermissions("MANAGE_MESSAGES")) return message.channel.send(perembed)
         
         if (isNaN(args[0])) return message.channel.send(amountembed)
         if(args[0] > 100) return message.channel.send(hundredembed)
