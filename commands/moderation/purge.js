@@ -43,7 +43,7 @@ module.exports = {
         if(args[0] > 100) return message.channel.send(hundredembed)
 
         message.channel.bulkDelete(args[0])
-        .then(message.channel.send(successembed)).then( msg => msg.delete({ timeout: 10000 }))
+        .then(message.channel.send(successembed))
         .catch( error => message.channel.send(`[E] ${error.message}`))
     }
 }
