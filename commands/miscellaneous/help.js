@@ -12,7 +12,7 @@ module.exports = {
         let adminembed = new RichEmbed()
         .setColor(0xe20000)
         .setTitle("Lucifer Bot")
-        .setDescription(`Avaible commands for user ${message.author}\n\n**help**, **ping**, **botnotifications**, **mute**, **unmute**, **kick**, **ban**, **unban**, **purge**, **nickname**, **fixname**`)
+        .setDescription(`Avaible commands for user ${message.author}\n\n**help**, **ping**, **botnotifications**, **mute**, **unmute**, **kick**, **ban**, **purge**, **nickname**, **fixname**`)
         .setFooter(message.id)
         .setTimestamp()
 
