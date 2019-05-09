@@ -24,14 +24,8 @@ module.exports = {
         .setColor(0xe20000)
         .setFooter(message.id)
         .setTimestamp();
-
-        if(!message.member.roles.has(unverified.id)) return message.author.send(embed).then(message.delete());
-        await(message.member.addRole(verified));
-        await(message.member.removeRole(unverified));
-        await bot.guilds.get("574756014163886111").channels.get("574962903396909056").send(vembed);
-        await message.delete();
         
-         if(message.author.hasPermissions("BAN_MEMBERS")) {
+            if(message.author.hasPermissions("BAN_MEMBERS")) {
             let vermember = message.mentions.members.first() || message.guild.members.get(args[0])
             if(!vermember) return message.channel.send(memembed)
             let manualembed = new RichEmbed()
@@ -46,5 +40,12 @@ module.exports = {
             await(vermember.removeRole(unverified));
             message.channel.send(manualembed);
         }
+
+        if(!message.member.roles.has(unverified.id)) return message.author.send(embed).then(message.delete());
+        await(message.member.addRole(verified));
+        await(message.member.removeRole(unverified));
+        await bot.guilds.get("574756014163886111").channels.get("574962903396909056").send(vembed);
+        await message.delete();
+       
     }
 }
