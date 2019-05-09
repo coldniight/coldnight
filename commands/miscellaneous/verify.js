@@ -24,22 +24,6 @@ module.exports = {
         .setColor(0xe20000)
         .setFooter(message.id)
         .setTimestamp();
-        
-            if(message.author.hasPermissions("BAN_MEMBERS")) {
-            let vermember = message.mentions.members.first() || message.guild.members.get(args[0])
-            if(!vermember) return message.channel.send(memembed)
-            let manualembed = new RichEmbed()
-            .setTitle("Lucifer Bot")
-            .setDescription(`Manually verified ${vermember}, ${message.author}.`)
-            .setColor(0xe20000)
-            .setFooter(message.id)
-            .setTimestamp();
-
-            if(!vermember.roles.has(unverified.id)) return message.channel.send(alrembed);
-            await(vermember.addRole(verified));
-            await(vermember.removeRole(unverified));
-            message.channel.send(manualembed);
-        }
 
         if(!message.member.roles.has(unverified.id)) return message.author.send(embed).then(message.delete());
         await(message.member.addRole(verified));
