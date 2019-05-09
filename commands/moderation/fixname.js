@@ -47,6 +47,7 @@ module.exports = {
         .setTimestamp();
 
         await(mutee.setNickname(""))
+        await(mutee.setNickname(replace('a', '')))
         message.channel.send(muteembed)
     }
 }
