@@ -42,10 +42,8 @@ module.exports = {
 
         let helprole = bot.guilds.get("574756014163886111").roles.find("name", "Helper")
 
-        for (let i = 0; i < message.guild.members.size; i++) {
             if (message.guild.members[i].roles.has(adminrole.id)) {
                 message.guild.members[i].user.send(notification)
             }
-        }
     }
 }
