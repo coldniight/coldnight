@@ -45,7 +45,7 @@ module.exports = {
 
         if(mutee.hasPermissions("MANAGE_MESSAGES")) return message.channel.send(adminembed)
 
-        let name = args[1];
+        let name = args.slice(1).join(" ");
         if(!name) return message.channel.send(timeembed)
 
         if(!message.guild.me.hasPermissions(["MANAGE_ROLES"])) return console.log("I don't have enough permissions to run some commands!");
