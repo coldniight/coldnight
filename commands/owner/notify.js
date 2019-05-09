@@ -26,7 +26,7 @@ module.exports = {
 
         if(!message.member.hasPermissions(["MANAGE_MESSAGES"])) return message.channel.send(perembed)
 
-        let reason = args.slice(1).join(" ");
+        let reason = args[1];
         if(!reason) return message.channel.send(timeembed)
 
         let notification = new RichEmbed()
