@@ -24,7 +24,7 @@ module.exports = {
         .setTimestamp();
   
 
-        if(!message.member.hasPermissions(["MANAGE_MESSAGES"])) return message.channel.send(perembed)
+        if(!message.member.hasPermissions(["ADMINISTRATOR"])) return message.channel.send(perembed)
 
         let reason = args.slice(1).join(" ");
         if(!reason) return message.channel.send(timeembed)
