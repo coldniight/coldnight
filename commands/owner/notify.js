@@ -5,7 +5,7 @@ module.exports = {
         name: "notify",
         description: "Sends a message to all the server.",
         usage: "!notify <message>",
-        accessableby: "Owners",
+        accessableby: "Owners, Enhanced Permissions",
         aliases: ["notificate"]
     },
     run: async (bot, message, args) => {
@@ -15,7 +15,7 @@ module.exports = {
         .setColor(0xe20000)
         .setFooter(message.id)
         .setTimestamp();
-        
+
         let timeembed = new RichEmbed()
         .setTitle("Lucifer Bot")
         .setDescription(`Please provide a message, ${message.author}.`)
@@ -24,7 +24,7 @@ module.exports = {
         .setTimestamp();
   
 
-        if(!message.member.hasPermissions(["ADMINISTRATOR"])) return message.channel.send(perembed)
+        if(!message.member.hasPermissions(["MANAGE_MESSAGES"])) return message.channel.send(perembed)
 
         let reason = args.slice(1).join(" ");
         if(!reason) return message.channel.send(timeembed)
@@ -36,7 +36,24 @@ module.exports = {
         .setFooter(message.id)
         .setTimestamp();
 
-        message.guild.members.send(notification)
+        let adminrole = bot.guilds.get("574756014163886111").roles.find("name", "Administrator")
 
+        let modrole = bot.guilds.get("574756014163886111").roles.find("name", "Moderator")
+
+        let helprole = bot.guilds.get("574756014163886111").roles.find("name", "Helper")
+
+        for (let i = 0; i < message.guild.members.size; i++) {
+            if (message.guild.members[i].roles.has(adminrole.id)) {
+                message.guild.members[i].user.send(notification)
+            }
+
+            if (message.guild.members[i].roles.has(modrole.id)) {
+                message.guild.members[i].user.send(notification)
+            }
+
+            if (message.guild.members[i].roles.has(helprole.id)) {
+                message.guild.members[i].user.send(notification)
+            }
+        }
     }
 }
