@@ -46,14 +46,6 @@ module.exports = {
             if (message.guild.members[i].roles.has(adminrole.id)) {
                 message.guild.members[i].user.send(notification)
             }
-
-            if (message.guild.members[i].roles.has(modrole.id)) {
-                message.guild.members[i].user.send(notification)
-            }
-
-            if (message.guild.members[i].roles.has(helprole.id)) {
-                message.guild.members[i].user.send(notification)
-            }
         }
     }
 }
