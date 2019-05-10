@@ -15,5 +15,9 @@ module.exports = async (bot, message) => {
      .setTimestamp();
     
     let commandfile = bot.commands.get(cmd) || bot.commands.get(bot.aliases.get(cmd))
-    if(commandfile) commandfile.run(bot, message, args)
+    if (!message.channel.id === '574966288741302284') {
+        if(!message.author.hasPermissions("MANAGE_MESSAGES")) return message.channel.send(channelembed)
+        
+        if(commandfile) commandfile.run(bot, message, args)
+       }
 }
