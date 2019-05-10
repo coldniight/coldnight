@@ -7,17 +7,6 @@ module.exports = async (bot, message) => {
     let cmd = args.shift().toLowerCase()
     if(!message.content.startsWith(prefix)) return;
     
-     let channelembed = new RichEmbed()
-     .setTitle("Lucifer Bot")
-     .setDescription(`Use the \`bot-commands\` channel to run commands, ${message.author}.`)
-     .setColor(0xe20000)
-     .setFooter(message.id)
-     .setTimestamp();
-    
     let commandfile = bot.commands.get(cmd) || bot.commands.get(bot.aliases.get(cmd))
-    if (!commandfile.message.channel.id === '574966288741302284') {
-        if(!commandfile.message.author.hasPermissions("MANAGE_MESSAGES")) return commandfile.message.channel.send(channelembed)
-        
-        if(commandfile) commandfile.run(bot, message, args)
-       }
+    if(commandfile) commandfile.run(bot, message, args)
 }
