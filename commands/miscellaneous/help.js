@@ -40,11 +40,11 @@ module.exports = {
          let channelembed = new RichEmbed()
         .setColor(0xe20000)
         .setTitle("Lucifer Bot")
-        .setDescription(`Use the command \`help\` at the <#574966288741302284> channel, ${message.author}.)`help
-`        .setFooter(message.id)
+        .setDescription(`Use the command \`help\` at the <#574966288741302284> channel, ${message.author}.`)
+        .setFooter(message.id)
         .setTimestamp()
 
-        if(!message.channel.id === "574966288741302284")
+        if(!message.channel.id === "574966288741302284") {
           if(!message.member.hasPermissions("MANAGE_MESSAGES")) return message.channel.send(channelembed)
         }
 
