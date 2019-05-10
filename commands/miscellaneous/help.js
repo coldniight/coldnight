@@ -45,7 +45,7 @@ module.exports = {
         .setTimestamp()
 
       if(message.channel.id === "574966288741302284") {
-        if(!(message.member.hasPermissions("MANAGE_MESSAES"))) {
+        if(!(message.member.hasPermissions("MANAGE_MESSAGES"))) {
             message.delete();
             message.channel.send(channelembed);
             return;
