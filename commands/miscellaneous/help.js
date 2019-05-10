@@ -36,13 +36,6 @@ module.exports = {
         .setDescription(`Avaible commands for user ${message.author}\n\n**help**, **ping**, **botnotifications**`)
         .setFooter(message.id)
         .setTimestamp()
-        
-         let channelembed = new RichEmbed()
-        .setColor(0xe20000)
-        .setTitle("Lucifer Bot")
-        .setDescription(`Use the command \`help\` at the <#574966288741302284> channel, ${message.author}.`)
-        .setFooter(message.id)
-        .setTimestamp()
 
         if(args[0]) {
             let command = args[0];
