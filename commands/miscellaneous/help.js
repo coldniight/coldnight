@@ -44,10 +44,13 @@ module.exports = {
         .setFooter(message.id)
         .setTimestamp()
 
-        if(!message.channel.id === "574966288741302284") {
-          if(!message.member.hasPermissions("MANAGE_MESSAGES")) return message.channel.send(channelembed)
+      if(message.channel.id === "574966288741302284") {
+        if(!(message.member.hasPermissions("MANAGE_MESSAES"))) {
+            message.delete();
+            message.channel.send(channelembed);
+            return;
         }
-
+    }
 
         if(args[0]) {
             let command = args[0];
